@@ -1,21 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%
+    Cookie[] cookies = request.getCookies();
+    String user = null;
+
+    if (cookies != null) {
+        for (Cookie c : cookies) {
+            if ("username".equals(c.getName())) {
+                user = c.getValue();
+            }
+        }
+    }
+
+    if (user != null) {
+        response.sendRedirect("home.jsp");
+    }
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP Jenkins Deployment</title>
+    <title>JSP Cookie Session App</title>
 </head>
-<body>
 
+<body>
     <h1>Welcome to JSP Application</h1>
 
-    <p>This application is deployed using Jenkins CI/CD pipeline.</p>
+    <p>Please login to continue</p>
 
-    <h3>Server Time:</h3>
-
-    <%
-        java.util.Date now = new java.util.Date();
-        out.println("Current Date & Time: " + now.toString());
-    %>
-
+    <a href="login.jsp">Go to Login Page</a>
 </body>
 </html>
