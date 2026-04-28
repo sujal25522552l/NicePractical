@@ -1,8 +1,12 @@
 {
-  "name": "node-jenkins-demo",
+  "name": "node-jenkins-app",
   "version": "1.0.0",
-  "main": "simple.js",
+  "description": "Simple Node.js app for Jenkins execution",
+  "main": "index.js",
   "scripts": {
-    "start": "node simple.js"
-  }
+    "start": "node index.js"
+  },
+  "author": "Sujal",
+  "license": "ISC",
+  "dependencies": {}
 }
