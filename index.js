@@ -1,9 +1,11 @@
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-  res.end("Hello from Node.js app running via Jenkins!");
+  res.end("Node.js running via Jenkins");
 });
 
-server.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+const PORT = 3001;
+
+server.listen(PORT, () => {
+  console.log("Server running on http://localhost:" + PORT);
 });
