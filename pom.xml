@@ -1,12 +1,14 @@
-<project>
-    <modelVersion>4.0.0</modelVersion>
+<build>
+    <finalName>JSPApp</finalName>
 
-    <groupId>com.example</groupId>
-    <artifactId>JSPApp</artifactId>
-    <version>1.0</version>
-    <packaging>war</packaging>
+    <plugins>
+        <plugin>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.5.1</version>
+            <configuration>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
+            </configuration>
+        </plugin>
+    </plugins>
 
-    <build>
-        <finalName>JSPApp</finalName>
-    </build>
-</project>
+</build>
