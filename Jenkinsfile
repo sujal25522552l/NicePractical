@@ -3,7 +3,7 @@ pipeline {
 
     stages {
 
-        stage('Clone Repo') {
+        stage('Checkout') {
             steps {
                 git 'https://github.com/sujal25522552l/NicePractical.git'
             }
@@ -11,17 +11,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("java-hello")
-                }
+                bat 'docker build -t java-app-image .'
             }
         }
 
         stage('Run Container') {
             steps {
-                script {
-                    docker.image("java-hello").run()
-                }
+                bat 'docker run --rm java-app-image'
             }
         }
     }
