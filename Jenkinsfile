@@ -11,13 +11,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t java-app-image .'
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t java-app-image .'
             }
         }
 
         stage('Run Container') {
             steps {
-                bat 'docker run --rm java-app-image'
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run --rm java-app-image'
             }
         }
     }
