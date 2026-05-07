@@ -1,6 +1,6 @@
 - name: Deploy NodeJS App using Ansible Pull Model
   hosts: localhost
-  become: no
+  become: yes
 
   tasks:
 
