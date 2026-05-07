@@ -1,0 +1,36 @@
+- name: Deploy NodeJS App using Ansible Pull Model
+  hosts: localhost
+  become: yes
+
+  tasks:
+
+    - name: Install NodeJS
+      apt:
+        name: nodejs
+        state: present
+        update_cache: yes
+
+    - name: Install npm
+      apt:
+        name: npm
+        state: present
+
+    - name: Create app directory
+      file:
+        path: /opt/nodeapp
+        state: directory
+
+    - name: Copy application files
+      copy:
+        src: app/
+        dest: /opt/nodeapp/
+
+    - name: Install dependencies
+      command: npm install
+      args:
+        chdir: /opt/nodeapp
+
+    - name: Start NodeJS app
+      shell: nohup node app.js > app.log 2>&1 &
+      args:
+        chdir: /opt/nodeapp
