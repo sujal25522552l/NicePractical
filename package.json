@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "welcome-app",
   "version": "1.0.0",
@@ -8,4 +9,17 @@
   "scripts": {
     "start": "node app.js"
   }
+=======
+{
+  "name": "node-jenkins-app",
+  "version": "1.0.0",
+  "description": "Simple Node.js app for Jenkins execution",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Sujal",
+  "license": "ISC",
+  "dependencies": {}
+>>>>>>> 6febc0174d4be07355c941e148781df28d6428ef
 }
