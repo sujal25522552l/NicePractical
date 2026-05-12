@@ -1,8 +1,9 @@
 - name: Deploy App using Ansible
   hosts: local
-  become: yes
+  become: no
 
   tasks:
+
     - name: Install Nginx
       apt:
         name: nginx
@@ -11,7 +12,7 @@
 
     - name: Copy application files
       copy:
-        src: ../app/
+        src: "{{ playbook_dir }}/../app/"
         dest: /var/www/html/
 
     - name: Restart Nginx
