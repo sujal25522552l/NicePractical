@@ -3,21 +3,15 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
                 git 'https://github.com/sujal25522552l/NicePractical.git'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Deploy using Ansible') {
             steps {
-                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t java-app-image .'
-            }
-        }
-
-        stage('Run Container') {
-            steps {
-                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run --rm java-app-image'
+                sh 'ansible-playbook -i ansible/inventory.ini ansible/deploy.yml'
             }
         }
     }
